@@ -1,0 +1,1024 @@
+@import url(https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap);
+@charset "UTF-8";
+[class*="_icon-"]:before {
+  font-family: "icons";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class*="_icon-"]:before {
+  display: block;
+}
+
+._icon-alphabet:before {
+  content: "\e900";
+}
+
+._icon-amazon:before {
+  content: "\e901";
+}
+
+._icon-arrow:before {
+  content: "\e902";
+  font-weight: 800;
+}
+
+._icon-at-sign:before {
+  content: "\e903";
+}
+
+._icon-codepen:before {
+  content: "\e904";
+}
+
+._icon-D:before {
+  content: "\e905";
+}
+
+._icon-dribble:before {
+  content: "\e906";
+}
+
+._icon-facebook:before {
+  content: "\e907";
+}
+
+._icon-googlel:before {
+  content: "\e908";
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  min-width: 320px;
+}
+
+body {
+  color: #202020;
+  line-height: 1;
+  font-family: "Ubuntu";
+  font-size: 0.875rem;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+input,
+button,
+textarea {
+  font-family: "Ubuntu";
+  font-size: inherit;
+}
+
+button {
+  cursor: pointer;
+  color: inherit;
+  background-color: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+.lock body {
+  overflow: hidden;
+  touch-action: none;
+}
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.wrapper > main {
+  flex: 1 1 auto;
+}
+.wrapper > * {
+  min-width: 0;
+}
+
+/*
+(i) Стили будут применяться ко 
+всем классам содержащим *__container
+Например header__container, main__container и т.д.
+Снипет (HTML): cnt
+*/
+[class*="__container"] {
+  max-width: 73.875rem;
+  box-sizing: content-box;
+  margin: 0 auto;
+  padding: 0 0.9375rem;
+}
+
+body::after {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.8s ease 0s;
+  pointer-events: none;
+  z-index: 149;
+}
+
+.popup-show body::after {
+  opacity: 1;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 30px 10px;
+  transition: visibility 0.8s ease 0s;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.popup_show {
+  z-index: 150;
+  visibility: visible;
+  overflow: auto;
+  pointer-events: auto;
+}
+
+.popup_show .popup__content {
+  visibility: visible;
+  transform: scale(1);
+}
+
+.popup__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100%;
+  flex: 1 1 auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup__content {
+  visibility: hidden;
+  transform: scale(0);
+  transition: transform 0.3s ease 0s;
+  background-color: #eee;
+  padding: 20px;
+  width: 100%;
+  max-width: 900px;
+  border-radius: 20px;
+}
+.lock .popup__content {
+  visibility: visible;
+}
+
+[class*="-ibg"] {
+  position: relative;
+}
+[class*="-ibg"] img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}
+
+[class*="-ibg_contain"] img {
+  object-fit: contain;
+}
+
+.row {
+}
+
+.column {
+  display: flex;
+  padding: 0px 15px;
+  flex: 0 1 33.333%;
+  /*запрещаем увеличиваться, разрешем уменьшаться, устанвливаем одинаковую ширину*/
+  margin: 0 auto;
+  text-align: center;
+  justify-content: center;
+  /*колонки становятся одинаковые по высоте - по самой высокой*/
+}
+@media (max-width: 61.99875em) {
+  .column {
+    flex: 0 1 50%;
+  }
+}
+@media (max-width: 47.99875em) {
+  .column {
+    flex: 0 1 100%;
+  }
+}
+
+.button {
+  display: inline-block;
+  color: #fff;
+  font-size: 1.5rem;
+  line-height: 1.1666666667;
+  padding: 1rem 3.625rem;
+  border-radius: 0.375rem;
+  background-color: #5528ff;
+  transition: background-color 0.3s ease 0s;
+}
+.button:hover {
+  background-color: #4521c7;
+}
+
+.text-line {
+  text-align: start;
+  /* выравнивание заголовка по центру или краю обертки, если поменять на center */
+  width: 99%;
+  /* ширина обертки. На самом деле для фиксированной верстки можно использовать и px, но лучше сразу адаптировать под разные устройства, т.к. это, что называется, тренди :-) */
+  margin: 0 auto;
+  /* выравнивание обертки по центру документа */
+  color: #c2c2c2;
+  font-weight: 300;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  /* аналогичные стили для второго псевдоэлемента */
+}
+@supports (margin-bottom: clamp(2.5rem, 1.5134529148rem + 4.932735426vw, 5.25rem)) {
+  .text-line {
+    margin-bottom: clamp(2.5rem, 1.5134529148rem + 4.932735426vw, 5.25rem);
+  }
+}
+@supports not (margin-bottom: clamp(2.5rem, 1.5134529148rem + 4.932735426vw, 5.25rem)) {
+  .text-line {
+    margin-bottom: calc(2.5rem + 2.75 * (100vw - 20rem) / 55.75);
+  }
+}
+.text-line span {
+  position: relative;
+}
+.text-line span:before {
+  display: block;
+  /* делаем псевдоэлемент блоком для последующего работы с ним, как с простым div'ом */
+  width: 1000px;
+  /* устанавливаем ширину линию. Можно использовать произвольную ширину */
+  content: "";
+  /* позволяет вставлять генерируемое содержание в текст страницы, которое первоначально в тексте отсутствует */
+  position: absolute;
+  /* абсолютное позиционирование для управления линиями */
+  border-bottom: 1px solid #c2c2c2;
+  /* бордер псевдо дива, т.е. сама линия */
+  top: 50%;
+  /* позиционирование по вертикали */
+  right: 6.25rem;
+  /* позиционирование по горизонтали */
+}
+.text-line span:after {
+  display: block;
+  width: 2000px;
+  content: "";
+  position: absolute;
+  border-bottom: 1px solid #c2c2c2;
+  top: 50%;
+  left: 6.25rem;
+}
+.text-line span:after span {
+  position: relative;
+}
+
+.header {
+  background: #e5e5e5;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+@supports (padding-top: clamp(1.25rem, 0.5100896861rem + 3.6995515695vw, 3.3125rem)) {
+  .header {
+    padding-top: clamp(1.25rem, 0.5100896861rem + 3.6995515695vw, 3.3125rem);
+  }
+}
+@supports not (padding-top: clamp(1.25rem, 0.5100896861rem + 3.6995515695vw, 3.3125rem)) {
+  .header {
+    padding-top: calc(1.25rem + 2.0625 * (100vw - 20rem) / 55.75);
+  }
+}
+@supports (padding-bottom: clamp(1.25rem, 0.5100896861rem + 3.6995515695vw, 3.3125rem)) {
+  .header {
+    padding-bottom: clamp(1.25rem, 0.5100896861rem + 3.6995515695vw, 3.3125rem);
+  }
+}
+@supports not (padding-bottom: clamp(1.25rem, 0.5100896861rem + 3.6995515695vw, 3.3125rem)) {
+  .header {
+    padding-bottom: calc(1.25rem + 2.0625 * (100vw - 20rem) / 55.75);
+  }
+}
+.header__container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.header__logo {
+  color: #5528ff;
+  position: relative;
+  z-index: 5;
+  width: 3.625rem;
+  height: 3.625rem;
+}
+@supports (margin-right: clamp(0rem, -0.5605381166rem + 2.802690583vw, 1.5625rem)) {
+  .header__logo {
+    margin-right: clamp(0rem, -0.5605381166rem + 2.802690583vw, 1.5625rem);
+  }
+}
+@supports not (margin-right: clamp(0rem, -0.5605381166rem + 2.802690583vw, 1.5625rem)) {
+  .header__logo {
+    margin-right: calc(0rem + 1.5625 * (100vw - 20rem) / 55.75);
+  }
+}
+.header__name {
+  font-size: 1.5rem;
+  line-height: 1.1666666667;
+  font-weight: 700;
+}
+.header__menu {
+  justify-content: flex-end;
+}
+@supports (margin-right: clamp(3.125rem, 2.4523542601rem + 3.3632286996vw, 5rem)) {
+  .header__menu {
+    margin-right: clamp(3.125rem, 2.4523542601rem + 3.3632286996vw, 5rem);
+  }
+}
+@supports not (margin-right: clamp(3.125rem, 2.4523542601rem + 3.3632286996vw, 5rem)) {
+  .header__menu {
+    margin-right: calc(3.125rem + 1.875 * (100vw - 20rem) / 55.75);
+  }
+}
+.header__button {
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  font-weight: 700;
+  padding: 0.1875rem 0.875rem 0.3125rem 0.875rem;
+  margin: 0 0.9375rem 0 0;
+  align-items: center;
+}
+
+.menu {
+  flex: 1 1 auto;
+}
+.menu__icon {
+  display: none;
+}
+.menu__list {
+  justify-content: flex-end;
+}
+.menu__list > li {
+  position: relative;
+}
+@supports (margin-left: clamp(2.5rem, 1.6031390135rem + 4.4843049327vw, 5rem)) {
+  .menu__list > li {
+    margin-left: clamp(2.5rem, 1.6031390135rem + 4.4843049327vw, 5rem);
+  }
+}
+@supports not (margin-left: clamp(2.5rem, 1.6031390135rem + 4.4843049327vw, 5rem)) {
+  .menu__list > li {
+    margin-left: calc(2.5rem + 2.5 * (100vw - 20rem) / 55.75);
+  }
+}
+@media (min-width: 47.99875em) {
+  .menu__list {
+    display: flex;
+    align-items: center;
+  }
+  .menu__list > li {
+    padding: 0.625rem 0;
+  }
+}
+.menu__link {
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  font-weight: 700;
+  color: #202020;
+}
+.menu__link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 47.99875em) {
+  .menu__icon {
+    display: block;
+    z-index: 5;
+    position: relative;
+    width: 1.875rem;
+    height: 1.125rem;
+    cursor: pointer;
+  }
+  .menu__icon span,
+  .menu__icon::before,
+  .menu__icon::after {
+    content: "";
+    transition: all 0.3s ease 0s;
+    right: 0;
+    position: absolute;
+    width: 100%;
+    height: 0.125rem;
+    background-color: #000;
+  }
+  .menu__icon::before,
+  .menu__icon::after {
+    content: "";
+  }
+  .menu__icon::before {
+    top: 0;
+  }
+  .menu__icon::after {
+    bottom: 0;
+  }
+  .menu__icon span {
+    top: 50%;
+    transform: scale(1) translate(0, -50%);
+  }
+
+  .menu__icon._active span {
+    transform: scale(0) translate(0, -50%);
+  }
+
+  .menu__icon._active::before {
+    top: 50%;
+    transform: rotate(-45deg) translate(0, -50%);
+  }
+
+  .menu__icon._active::after {
+    bottom: 50%;
+    transform: rotate(45deg) translate(0, 50%);
+  }
+
+  .menu__body {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    color: #000;
+    background-color: white;
+    padding: 12.5rem 1.875rem 1.875rem 1.875rem;
+    text-align: center;
+    transition: left 0.3s ease 0s;
+    overflow: auto;
+  }
+
+  .menu__body._active {
+    left: 0%;
+  }
+
+  .menu__body::before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 4.375rem;
+    z-index: 2;
+  }
+
+  .menu__list > li {
+    margin: 0 0 2.5rem 0;
+  }
+  .menu__list > li :last-child {
+    margin-bottom: 0;
+  }
+
+  .menu__list > li._active .menu__sub-list {
+    display: block;
+  }
+
+  .menu__link {
+    font-size: 1.875rem;
+  }
+}
+
+.icon-menu {
+  display: none;
+  @media (max-width: $mobile) {
+    display: block;
+    position: relative;
+    width: rem(30);
+    height: rem(18);
+    cursor: pointer;
+    z-index: 5;
+    span,
+    &::before,
+    &::after {
+      content: "";
+      transition: all 0.3s ease 0s;
+      right: 0;
+      position: absolute;
+      width: 100%;
+      height: rem(2);
+      background-color: #000;
+    }
+    &::before {
+      top: 0;
+    }
+    &::after {
+      bottom: 0;
+    }
+    span {
+      top: calc(50% - rem(1));
+    }
+    .menu-open & {
+      span {
+        width: 0;
+      }
+      &::before,
+      &::after {
+      }
+      &::before {
+        top: calc(50% - rem(1));
+        transform: rotate(-45deg);
+      }
+      &::after {
+        bottom: calc(50% - rem(1));
+        transform: rotate(45deg);
+      }
+    }
+  }
+}
+*/ .footer {
+  background: #f7f7f7;
+  /*Покрасим весь блок*/
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+.footer__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer__logo {
+  color: #5528ff;
+  position: relative;
+  width: 3.75rem;
+  height: 3.75rem;
+}
+@supports (margin-right: clamp(0rem, -1.1210762332rem + 5.6053811659vw, 3.125rem)) {
+  .footer__logo {
+    margin-right: clamp(0rem, -1.1210762332rem + 5.6053811659vw, 3.125rem);
+  }
+}
+@supports not (margin-right: clamp(0rem, -1.1210762332rem + 5.6053811659vw, 3.125rem)) {
+  .footer__logo {
+    margin-right: calc(0rem + 3.125 * (100vw - 20rem) / 55.75);
+  }
+}
+.footer__social {
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.125rem;
+}
+@supports (gap: clamp(1.5625rem, 1.360706278rem + 1.0089686099vw, 2.125rem)) {
+  .footer__social {
+    gap: clamp(1.5625rem, 1.360706278rem + 1.0089686099vw, 2.125rem);
+  }
+}
+@supports not (gap: clamp(1.5625rem, 1.360706278rem + 1.0089686099vw, 2.125rem)) {
+  .footer__social {
+    gap: calc(1.5625rem + 0.5625 * (100vw - 20rem) / 55.75);
+  }
+}
+.footer__image:hover {
+  display: flex;
+  width: 1.5625rem;
+  height: 1.5625rem;
+  border-radius: 50%;
+  background-color: #e1e1e1;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease 0s;
+}
+
+/*=========== start block1 hi ===============================*/
+.hi {
+  background-color: #e5e5e5;
+  /*Покрасим весь блок*/
+}
+@supports (padding-top: clamp(7.5rem, 4.9439461883rem + 12.7802690583vw, 14.625rem)) {
+  .hi {
+    padding-top: clamp(7.5rem, 4.9439461883rem + 12.7802690583vw, 14.625rem);
+  }
+}
+@supports not (padding-top: clamp(7.5rem, 4.9439461883rem + 12.7802690583vw, 14.625rem)) {
+  .hi {
+    padding-top: calc(7.5rem + 7.125 * (100vw - 20rem) / 55.75);
+  }
+}
+@supports (padding-bottom: clamp(2.5rem, 1.1547085202rem + 6.7264573991vw, 6.25rem)) {
+  .hi {
+    padding-bottom: clamp(2.5rem, 1.1547085202rem + 6.7264573991vw, 6.25rem);
+  }
+}
+@supports not (padding-bottom: clamp(2.5rem, 1.1547085202rem + 6.7264573991vw, 6.25rem)) {
+  .hi {
+    padding-bottom: calc(2.5rem + 3.75 * (100vw - 20rem) / 55.75);
+  }
+}
+.hi__title {
+  font-weight: 700;
+  line-height: 1.1538461538;
+  color: #202020;
+}
+@supports (margin-bottom: clamp(1.25rem, 0.91367713rem + 1.6816143498vw, 2.1875rem)) {
+  .hi__title {
+    margin-bottom: clamp(1.25rem, 0.91367713rem + 1.6816143498vw, 2.1875rem);
+  }
+}
+@supports not (margin-bottom: clamp(1.25rem, 0.91367713rem + 1.6816143498vw, 2.1875rem)) {
+  .hi__title {
+    margin-bottom: calc(1.25rem + 0.9375 * (100vw - 20rem) / 55.75);
+  }
+}
+@supports (font-size: clamp(1.875rem, 1.2920403587rem + 2.9147982063vw, 3.5rem)) {
+  .hi__title {
+    font-size: clamp(1.875rem, 1.2920403587rem + 2.9147982063vw, 3.5rem);
+  }
+}
+@supports not (font-size: clamp(1.875rem, 1.2920403587rem + 2.9147982063vw, 3.5rem)) {
+  .hi__title {
+    font-size: calc(1.875rem + 1.625 * (100vw - 20rem) / 55.75);
+  }
+}
+.hi__text {
+  max-width: 46.3125rem;
+  line-height: 1.59375;
+  color: #6b7280;
+}
+@supports (font-size: clamp(1.25rem, 0.980941704rem + 1.3452914798vw, 2rem)) {
+  .hi__text {
+    font-size: clamp(1.25rem, 0.980941704rem + 1.3452914798vw, 2rem);
+  }
+}
+@supports not (font-size: clamp(1.25rem, 0.980941704rem + 1.3452914798vw, 2rem)) {
+  .hi__text {
+    font-size: calc(1.25rem + 0.75 * (100vw - 20rem) / 55.75);
+  }
+}
+@supports (margin-bottom: clamp(1.875rem, 0.9781390135rem + 4.4843049327vw, 4.375rem)) {
+  .hi__text {
+    margin-bottom: clamp(1.875rem, 0.9781390135rem + 4.4843049327vw, 4.375rem);
+  }
+}
+@supports not (margin-bottom: clamp(1.875rem, 0.9781390135rem + 4.4843049327vw, 4.375rem)) {
+  .hi__text {
+    margin-bottom: calc(1.875rem + 2.5 * (100vw - 20rem) / 55.75);
+  }
+}
+/*=========== end block1 hi ===============================*/
+/*=========== start block2 services ===============================*/
+.services {
+  background-color: #e5e5e5;
+  /*Покрасим весь блок*/
+}
+@supports (padding-bottom: clamp(3.125rem, 1.9366591928rem + 5.9417040359vw, 6.4375rem)) {
+  .services {
+    padding-bottom: clamp(3.125rem, 1.9366591928rem + 5.9417040359vw, 6.4375rem);
+  }
+}
+@supports not (padding-bottom: clamp(3.125rem, 1.9366591928rem + 5.9417040359vw, 6.4375rem)) {
+  .services {
+    padding-bottom: calc(3.125rem + 3.3125 * (100vw - 20rem) / 55.75);
+  }
+}
+@supports (margin-bottom: clamp(2.5rem, 1.1098654709rem + 6.9506726457vw, 6.375rem)) {
+  .services__text-line {
+    margin-bottom: clamp(2.5rem, 1.1098654709rem + 6.9506726457vw, 6.375rem);
+  }
+}
+@supports not (margin-bottom: clamp(2.5rem, 1.1098654709rem + 6.9506726457vw, 6.375rem)) {
+  .services__text-line {
+    margin-bottom: calc(2.5rem + 3.875 * (100vw - 20rem) / 55.75);
+  }
+}
+.services__row {
+  display: flex;
+  /*здесь задаются свойства колонок */
+  /*добавим отступ между колонками ?*/
+  flex-wrap: wrap;
+  margin: 0 auto;
+  column-gap: 12.5rem;
+}
+@supports (row-gap: clamp(2.5rem, 1.5582959641rem + 4.7085201794vw, 5.125rem)) {
+  .services__row {
+    row-gap: clamp(2.5rem, 1.5582959641rem + 4.7085201794vw, 5.125rem);
+  }
+}
+@supports not (row-gap: clamp(2.5rem, 1.5582959641rem + 4.7085201794vw, 5.125rem)) {
+  .services__row {
+    row-gap: calc(2.5rem + 2.625 * (100vw - 20rem) / 55.75);
+  }
+}
+.services__column {
+  display: flex;
+  flex: 0 1 50%;
+  /*запрещаем увеличиваться, разрешем уменьшаться, устанвливаем одинаковую ширину*/
+  max-width: 28.125rem;
+  margin: 0 auto;
+}
+@media (max-width: 47.99875em) {
+  .services__column {
+    flex: 0 1 100%;
+  }
+}
+.services__item {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+}
+.services__image {
+  display: flex;
+  flex: 0 0 5rem;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+@supports (margin-right: clamp(1.25rem, 0.6221973094rem + 3.1390134529vw, 3rem)) {
+  .services__image {
+    margin-right: clamp(1.25rem, 0.6221973094rem + 3.1390134529vw, 3rem);
+  }
+}
+@supports not (margin-right: clamp(1.25rem, 0.6221973094rem + 3.1390134529vw, 3rem)) {
+  .services__image {
+    margin-right: calc(1.25rem + 1.75 * (100vw - 20rem) / 55.75);
+  }
+}
+.services__desс {
+  flex: 1 1 auto;
+}
+.services__subtitle {
+  font-size: 1.75rem;
+  line-height: 1.1428571429;
+  text-align: start;
+  margin: 0 0 1rem 0;
+}
+@supports (font-size: clamp(1.25rem, 1.0706278027rem + 0.8968609865vw, 1.75rem)) {
+  .services__subtitle {
+    font-size: clamp(1.25rem, 1.0706278027rem + 0.8968609865vw, 1.75rem);
+  }
+}
+@supports not (font-size: clamp(1.25rem, 1.0706278027rem + 0.8968609865vw, 1.75rem)) {
+  .services__subtitle {
+    font-size: calc(1.25rem + 0.5 * (100vw - 20rem) / 55.75);
+  }
+}
+.services__text {
+  color: #b2b2b2;
+  text-align: start;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/*=========== end block2 services ===============================*/
+/*=========== start block3 clients ===============================*/
+.clients {
+  background-color: #e5e5e5;
+  /*Покрасим весь блок*/
+  /*для того чтобы раздвинуть колонки по горизонтали на 16px сначала 
+  раздвинем контейнер&__row на margin: 0px -8px;. А затем на столько же
+  сдвинем сами колонки padding: 0px 8px; - САМЫЙ ПРАВИЛЬНЫЙ СПОСОБ!!! */
+}
+@supports (padding-bottom: clamp(3.125rem, 2.5196188341rem + 3.0269058296vw, 4.8125rem)) {
+  .clients {
+    padding-bottom: clamp(3.125rem, 2.5196188341rem + 3.0269058296vw, 4.8125rem);
+  }
+}
+@supports not (padding-bottom: clamp(3.125rem, 2.5196188341rem + 3.0269058296vw, 4.8125rem)) {
+  .clients {
+    padding-bottom: calc(3.125rem + 1.6875 * (100vw - 20rem) / 55.75);
+  }
+}
+@supports (margin-bottom: clamp(2.5rem, 1.8721973094rem + 3.1390134529vw, 4.25rem)) {
+  .clients__text-line {
+    margin-bottom: clamp(2.5rem, 1.8721973094rem + 3.1390134529vw, 4.25rem);
+  }
+}
+@supports not (margin-bottom: clamp(2.5rem, 1.8721973094rem + 3.1390134529vw, 4.25rem)) {
+  .clients__text-line {
+    margin-bottom: calc(2.5rem + 1.75 * (100vw - 20rem) / 55.75);
+  }
+}
+.clients__row {
+  display: flex;
+  /*Сверстаем колонки*/
+  flex-wrap: wrap;
+  /*Позволим колонкам переходить на следующую строку*/
+  margin: 0px -8px;
+  /*Чтобы раздвинуть колонки делаем отступы на половину ширины отступа между колонками */
+}
+@supports (row-gap: clamp(1.875rem, 1.53867713rem + 1.6816143498vw, 2.8125rem)) {
+  .clients__row {
+    row-gap: clamp(1.875rem, 1.53867713rem + 1.6816143498vw, 2.8125rem);
+  }
+}
+@supports not (row-gap: clamp(1.875rem, 1.53867713rem + 1.6816143498vw, 2.8125rem)) {
+  .clients__row {
+    row-gap: calc(1.875rem + 0.9375 * (100vw - 20rem) / 55.75);
+  }
+}
+.clients__column {
+  width: 10.125rem;
+  height: 3.6875rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 8px;
+  /*Сами колонки сдвигаем на те же 8 px*/
+  flex: 0 1 25%;
+  /*Запрещаем колонке увеличиваться, разрешаем уменьшаться, и делаем размер 50% */
+  max-width: 25rem;
+  margin: 0 auto;
+}
+@media (max-width: 61.99875em) {
+  .clients__column {
+    flex: 0 1 33.333%;
+  }
+}
+@media (max-width: 47.99875em) {
+  .clients__column {
+    flex: 0 1 50%;
+  }
+}
+@media (max-width: 29.99875em) {
+  .clients__column {
+    flex: 0 1 100%;
+  }
+}
+.item-logo {
+  height: 3.9375rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.item-logo__image {
+  /*Запрещаем картинке уменьшаться и увеличиваться, зададим конкретный размер*/
+  flex: 0 0 63px;
+}
+/*=========== end block3 logo ===============================*/
+/*=========== start block4 team ===============================*/
+.team {
+  position: relative;
+  background-color: #e5e5e5;
+  /*Покрасим весь блок*/
+  /*для того чтобы раздвинуть колонки по горизонтали на 16px сначала 
+  раздвинем контейнер&__row на margin: 0px -8px;. А затем на столько же
+  сдвинем сами колонки padding: 0px 8px; - САМЫЙ ПРАВИЛЬНЫЙ СПОСОБ!!! */
+}
+@supports (padding-bottom: clamp(2.5rem, 1.1547085202rem + 6.7264573991vw, 6.25rem)) {
+  .team {
+    padding-bottom: clamp(2.5rem, 1.1547085202rem + 6.7264573991vw, 6.25rem);
+  }
+}
+@supports not (padding-bottom: clamp(2.5rem, 1.1547085202rem + 6.7264573991vw, 6.25rem)) {
+  .team {
+    padding-bottom: calc(2.5rem + 3.75 * (100vw - 20rem) / 55.75);
+  }
+}
+@supports (margin-bottom: clamp(2.5rem, 1.0426008969rem + 7.2869955157vw, 6.5625rem)) {
+  .team__text-line {
+    margin-bottom: clamp(2.5rem, 1.0426008969rem + 7.2869955157vw, 6.5625rem);
+  }
+}
+@supports not (margin-bottom: clamp(2.5rem, 1.0426008969rem + 7.2869955157vw, 6.5625rem)) {
+  .team__text-line {
+    margin-bottom: calc(2.5rem + 4.0625 * (100vw - 20rem) / 55.75);
+  }
+}
+.team__row {
+  display: flex;
+  /*Сверстаем колонки*/
+  flex-wrap: wrap;
+  /*Позволим колонкам переходить на следующую строку*/
+  margin: 0px -8px;
+  /*Чтобы раздвинуть колонки делаем отступы на половину ширины отступа между колонками */
+}
+@supports (row-gap: clamp(1.875rem, 1.2023542601rem + 3.3632286996vw, 3.75rem)) {
+  .team__row {
+    row-gap: clamp(1.875rem, 1.2023542601rem + 3.3632286996vw, 3.75rem);
+  }
+}
+@supports not (row-gap: clamp(1.875rem, 1.2023542601rem + 3.3632286996vw, 3.75rem)) {
+  .team__row {
+    row-gap: calc(1.875rem + 1.875 * (100vw - 20rem) / 55.75);
+  }
+}
+.team__column {
+  padding: 0px 8px;
+  /*Сами колонки сдвигаем на те же 8 px*/
+  flex: 0 1 33.333%;
+  /*Запрещаем колонке увеличиваться, разрешаем уменьшаться, и делаем размер 50% */
+  max-width: 25rem;
+  margin: 0 auto;
+}
+@media (max-width: 61.99875em) {
+  .team__column {
+    flex: 0 1 50%;
+  }
+}
+@media (max-width: 47.99875em) {
+  .team__column {
+    flex: 0 1 100%;
+  }
+}
+.item__row {
+  /*разместим картинку и текст также, как в блоке2*/
+  display: flex;
+  align-items: center;
+}
+.item__image {
+  /*Запрещаем картинке уменьшаться и увеличиваться, зададим конкретный размер*/
+  flex: 0 0 100px;
+}
+.item__image img {
+  width: 6.25rem;
+  height: 6.25rem;
+  border-radius: 50%;
+}
+@media (max-width: 47.99875em) {
+  .item__image img {
+    width: 6.875rem;
+    height: 6.875rem;
+  }
+}
+@media (max-width: 47.99875em) {
+  .item__image img {
+    width: 7.5rem;
+    height: 7.5rem;
+  }
+}
+.item__body {
+  flex: 0 0 auto;
+  /*тексту  позволяем все действия*/
+  padding: 0px 0px 0px 35px;
+  /*отступ между картинкой и текстом*/
+  align-items: center;
+  justify-content: center;
+}
+.item__title {
+  color: #202020;
+  font-size: 1.75rem;
+  line-height: 1.1428571429;
+  font-weight: 700;
+  margin: 0px 0px 11px 0px;
+}
+.item__text {
+  color: #b2b2b2;
+  font-size: 14px;
+  line-height: 1.1428571429;
+}
+/*=========== end block4 team ===============================*/
